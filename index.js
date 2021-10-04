@@ -3,6 +3,7 @@ const chalk = require('chalk');
 const clipboardy = require('clipboardy');
 
 const createPassword = require('./utils/createPassword');
+const savePassword = require('./utils/savePassword');
 const log = console.log;
 
 program
@@ -20,6 +21,11 @@ const { length, save, numbers, symbols } = program.opts();
 
 // Get generated password
 const generatedPassword = createPassword(length, numbers, symbols);
+
+// save to file
+if (save) {
+  savePassword(generatedPassword);
+}
 
 // copy to clipboard
 clipboardy.writeSync(generatedPassword);
