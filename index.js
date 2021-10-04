@@ -5,8 +5,10 @@ program
   .description('A simple CLI to generate a random password');
 
 program
-  .option('-l, --length <number>', 'Length of the password', '8')
+  .option('-l, --length <number>', 'Length of password', '8')
   .option('-s, --save', 'save password to passwords.txt')
+  .option('-nn --no-numbers', 'remove numbers')
+  .option('-ns --no-symbols', 'remove symbols')
   .parse();
 
 console.log(program.opts())
